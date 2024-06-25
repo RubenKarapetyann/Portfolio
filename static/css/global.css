@@ -2,6 +2,7 @@
     --white : #FFFF;
     --orange : #FD8637;
     --black : #101010;
+    --light-orange : #FEB374
 }
 @font-face {
     font-family: "Nunito";
@@ -34,4 +35,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.thin {
+    width: 90%;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media screen and (max-width: 500px) {
+    .thin {
+        width: 100%;
+    }
 }
