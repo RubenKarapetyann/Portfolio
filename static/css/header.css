@@ -1,0 +1,134 @@
+header {
+    height: 100px;
+}
+.inner-container {
+    width: 90%;
+    height: 80%;
+}
+.content-wrapper {
+    background-color: var(--black);
+    border-radius: 70px;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.element-container {
+    width: 10%;
+    height: 100%;
+    cursor: pointer;
+}
+.nav-title {
+    color: var(--white);
+}
+.element-inner-container {
+    width: 100%;
+    height: 80%;
+    border-radius: 70px;
+    transition: 0.3s ease-in
+}
+.element-inner-container:hover {
+    background-color: var(--orange);
+}
+.nav-link {
+    text-decoration: none;
+}
+.nav-logo {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: bold; 
+}
+.logo-container {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+.nav-menu-button {
+    color: white;
+    width: 20px;
+    height: 100%;
+}
+@media screen and (max-width: 500px) {
+    .element-container {
+        display: none;
+    }
+    .content-wrapper {
+        border-radius: 0;
+        padding: 0;
+        padding-right: 5px;
+    }
+    .inner-container {
+        width: 100%;
+        height: 100%;
+    }
+    .logo-container {
+        display: flex;
+    }
+    .nav-menu-container {
+        display: none;
+    }
+    .nav-menu-container {
+        display: flex;
+    }
+}
+@media screen and (min-width: 500px) {
+    .nav-menu-container {
+        display: none;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .nav-title {
+        font-size: 14px;
+    }
+    .logo-container {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .nav-title {
+        font-size: 12px;
+    }
+    .logo-container {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .nav-title {
+        font-size: 10px;
+    }
+    .logo-container {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
+
+
+
+/* icons */
+.gg-menu {
+    transform: scale(var(--ggs,1));
+    color: white;
+}
+.gg-menu,
+.gg-menu::after,
+.gg-menu::before {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 3px;
+    background: currentColor
+}
+.gg-menu::after,
+.gg-menu::before {
+    content: "";
+    position: absolute;
+    top: -6px
+}
+.gg-menu::after {
+    top: 6px
+}
