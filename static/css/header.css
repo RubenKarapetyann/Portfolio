@@ -1,5 +1,8 @@
 header {
     height: 100px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 .inner-container {
     width: 100%;
