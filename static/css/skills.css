@@ -7,7 +7,8 @@
 }
 .skills-element-container {
     width: 300px;
-    height: 210px;
+    min-height: 210px;
+    height: auto;
 }
 .skills-container { 
     display: flex;
