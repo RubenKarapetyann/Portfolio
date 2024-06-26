@@ -1,6 +1,7 @@
 header {
     height: 100px;
-    position: sticky;
+    /* position: sticky; */
+    position: absolute;
     top: 0;
     z-index: 5;
 }
@@ -52,6 +53,18 @@ header {
     width: 20px;
     height: 100%;
 }
+.is-sticky {
+    position: fixed;
+    animation: slideDown 0.35s ease-out;
+}
+@keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 @media screen and (max-width: 500px) {
     .element-container {
         display: none;
