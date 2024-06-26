@@ -6,6 +6,12 @@
     z-index: 3;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+    background:
+      radial-gradient(#383434 49%,#0000 50%) calc(79px/-2) calc(79px/2),
+      repeating-conic-gradient(from 45deg,#000000 0 25%,#0000 0 50%)
+        calc(79px/2) calc(79px/2),
+      radial-gradient(#383434 49%,#0000 50%),radial-gradient(#383434 49%,#0000 50%) 79px 79px #000000;
+    background-size: calc(2*79px) calc(2*79px);
 }
 .about-container {
     width: 100%;

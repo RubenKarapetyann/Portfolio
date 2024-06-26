@@ -2,7 +2,8 @@
     --white : #FFFF;
     --orange : #FD8637;
     --black : #101010;
-    --light-orange : #FEB374
+    --light-orange : #FEB374;
+    --gray : rgb(79, 79, 79);
 }
 @font-face {
     font-family: "Nunito";
