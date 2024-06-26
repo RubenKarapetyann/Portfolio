@@ -48,6 +48,13 @@
 html {
     scroll-behavior: smooth;
 }
+.wrapper {
+    height: auto;
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 @media screen and (max-width: 500px) {
     .thin {
         width: 100%;

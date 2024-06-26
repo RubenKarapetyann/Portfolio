@@ -1,0 +1,21 @@
+.contacts-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+}
+.contact-element { 
+    width: 80px;
+    height: 80px;
+    border: 2px var(--white) solid;
+    background-color: var(--gray);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+}
+.contact-element:hover {
+    transform: translate(0, -10px);
+}
