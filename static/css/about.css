@@ -47,3 +47,9 @@
 .about-short-description {
     color: var(--white);
 }
+@media screen and (max-width: 600px) {
+    .main-content {
+        border-radius: 0;
+        margin-top: 0px;
+    }
+}

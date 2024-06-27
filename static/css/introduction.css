@@ -11,6 +11,7 @@
 }
 .introduction-title-text {
     font-weight: 900;
+    animation: appear 2s ease-out;
 }
 .introduction {
     height: 500px;
@@ -20,7 +21,6 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
     margin-top: -60px;
 }
 .circle {
@@ -31,13 +31,13 @@
     position: absolute;
     bottom: -250px;
     z-index: 0;
-
 }
 .image-container {
     width: 500px;
     position: relative;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 .image {
     z-index: 1;
@@ -50,6 +50,7 @@
     display: flex;
     align-items: center;
     width: 100px;
+    z-index: 3;
 }
 .introduction-quote-text {
     text-wrap: nowrap;
@@ -62,6 +63,12 @@
 .bold {
     font-weight: bold;
     font-size: 25px;
+}
+#introduction-quote-info-1 {
+    animation: 2s ease-out appearLeft;
+}
+#introduction-quote-info-2 {
+    animation: 2s ease-out appearRight;
 }
 @media screen and (max-width: 425px) {
     .introduction-title {
@@ -82,5 +89,10 @@
     }
     .image {
         height: 350px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .introduction-quote-container {
+        display: none;
     }
 }
