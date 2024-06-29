@@ -16,3 +16,9 @@
         </div>
     </li>
 {%- endmacro %}
+{% macro about_element(title, text) %}
+    <div class="about-item-container">
+        <p class="about-item-title">{{ title }}:</p>
+        <p class="about-item-text">{{ text }}</p>
+    </div>
+{% endmacro %}
