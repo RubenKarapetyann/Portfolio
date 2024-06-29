@@ -1,23 +1,9 @@
 {% extends "carcass/section_base.html" %}
-
+{% from "components/cards.html" import card %}
 
 {% block scroll_id %}projects{% endblock  %}
 {% block title %}My Projects{% endblock %}
 
 {% block cards %}
-    <div class="skills-element-container">
-        <div class="skills-element-background">
-            <div class="skills-title-container">
-                <p class="skills-title">
-                    Kinder
-                </p>
-            </div>
-            <hr>
-            <div class="skills-content-container">
-                <p class="short-description">
-                    random project
-                </p>
-            </div>
-        </div>
-    </div>
+    {{ card("Kinder", "random project 1") }}
 {% endblock %}

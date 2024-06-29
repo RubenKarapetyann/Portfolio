@@ -1,23 +1,10 @@
 {% extends "carcass/section_base.html" %}
+{% from "components/cards.html" import card %}
 
 
 {% block scroll_id %}experience{% endblock  %}
 {% block title %}My Experience{% endblock %}
 
 {% block cards %}
-    <div class="skills-element-container">
-        <div class="skills-element-background">
-            <div class="skills-title-container">
-                <p class="skills-title">
-                    Apple
-                </p>
-            </div>
-            <hr>
-            <div class="skills-content-container">
-                <p class="short-description">
-                    I had been working for 1 day
-                </p>
-            </div>
-        </div>
-    </div>
+    {{ card("Apple", "worked one day") }}
 {% endblock %}

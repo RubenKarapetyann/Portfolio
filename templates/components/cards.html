@@ -1,0 +1,24 @@
+{% macro icon_card(href, path) -%}
+    <div class="contact-element">
+        <a href="{{ href }}">
+            <svg style="fill: var(--white);" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="{{ path }}"/></svg>
+        </a>
+    </div>
+{%- endmacro %}
+{% macro card(title, text) %}
+    <div class="skills-element-container">
+        <div class="skills-element-background">
+            <div class="skills-title-container">
+                <p class="skills-title">
+                    {{ title }}
+                </p>
+            </div>
+            <hr>
+            <div class="skills-content-container">
+                <p class="short-description">
+                    {{ text }}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
