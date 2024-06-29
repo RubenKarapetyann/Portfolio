@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from constants.routes import TEST
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -9,7 +9,17 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///portfolio.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
+##routes
+@app.route(TEST)
+@app.route("/")
+def test():
+    return render_template("portfolio.html")
 
+if __name__ == "__main__":
+    # with app.app_context():
+    #     db.create_all()
+    app.run(debug=True)
+    
 ## models
 class Card(db.Model):
     __tablename__ = "cards"
@@ -31,18 +41,8 @@ class Element(db.Model):
     cdate = db.Column(db.DateTime, default=datetime.now)
     udate = db.Column(db.DateTime, default=datetime.now)
     text = db.Column(db.Text, nullable=True)
-    url = db.Column(db.Text, nullable=True)
+    url = db.Column(db.String(300), nullable=True)
     
     def __repr__(self):
         return "<Texts %r>" % self.id
      
-
-##routes
-@app.route(TEST)
-def test():
-    return "Hello World!"
-
-if __name__ == "__main__":
-    # with app.app_context():
-    #     db.create_all()
-    app.run(debug=True)
