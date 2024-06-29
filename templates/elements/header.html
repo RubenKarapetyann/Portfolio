@@ -1,14 +1,4 @@
-{% macro nav_link(text, link="") -%}
-    <li class="element-container container">
-        <div class="element-inner-container container">
-            <a href="#{{ link }}" class="nav-link">
-                <p class="nav-title">
-                    {{ text }}
-                </p>
-            </a>
-        </div>
-    </li>
-{%- endmacro %}
+{% from "components/global.html" import nav_link %}
 <header class="container thin">
     <div class="inner-container">
         <ul class="content-wrapper">

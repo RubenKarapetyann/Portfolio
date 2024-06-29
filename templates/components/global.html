@@ -1,0 +1,18 @@
+{% macro description(text, id) -%}
+    <div class="introduction-quote-container" id="{{ id }}">
+            <div class="introduction-quote-text">
+                {{ text }}
+            </div>
+        </div>
+{%- endmacro %}
+{% macro nav_link(text, link="") -%}
+    <li class="element-container container">
+        <div class="element-inner-container container">
+            <a href="#{{ link }}" class="nav-link">
+                <p class="nav-title">
+                    {{ text }}
+                </p>
+            </a>
+        </div>
+    </li>
+{%- endmacro %}

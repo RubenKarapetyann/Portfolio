@@ -1,10 +1,4 @@
-{% macro description(text, id) -%}
-    <div class="introduction-quote-container" id="{{ id }}">
-            <div class="introduction-quote-text">
-                {{ text }}
-            </div>
-        </div>
-{%- endmacro %}
+{% from "components/global.html" import description %}
 <div class="introduction thin">
     <div class="introduction-title">
         <p class="introduction-title-text">Hi, I'm <span class="orange-text">Ruben</span>,</p> 
