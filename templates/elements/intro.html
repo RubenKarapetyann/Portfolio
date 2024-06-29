@@ -1,0 +1,28 @@
+{% macro description(text, id) -%}
+    <div class="introduction-quote-container" id="{{ id }}">
+            <div class="introduction-quote-text">
+                {{ text }}
+            </div>
+        </div>
+{%- endmacro %}
+<div class="introduction thin">
+    <div class="introduction-title">
+        <p class="introduction-title-text">Hi, I'm <span class="orange-text">Ruben</span>,</p> 
+        <p class="introduction-title-text">Full-Stack Developer</p>
+    </div>
+    <div class="introduction-content">
+        {{ description("Tell me and I forget, teach me and I may remember, involve me and I learn.", "introduction-quote-info-1") }}
+        <div class="image-container">
+            <div class="circle"></div>
+            <div class="image">
+                <img class="main-image" width="500px" height="500px" src="https://png.pngtree.com/png-vector/20230918/ourmid/pngtree-man-in-shirt-smiles-and-gives-thumbs-up-to-show-approval-png-image_10094381.png" alt="author">
+            </div>
+        </div>
+        {{ description("17 years old", "introduction-quote-info-2") }}
+    </div>
+</div>
+
+{#"<p class='bold'>
+    17 years
+</p>  
+<p>old</p>" #}

@@ -53,12 +53,13 @@
     z-index: 3;
 }
 .introduction-quote-text {
-    text-wrap: nowrap;
+    text-wrap: wrap;
     font-family: "Nunito" sans-serif;
     font-size: 18px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    width: 100%;
 }
 .bold {
     font-weight: bold;
