@@ -1,0 +1,55 @@
+.dashboard-elements-container {
+    padding: 5px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.dashboard-element {
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.dashboard-element:hover {
+    background-color: white;
+    font-size: 18px;
+}
+.dashboard-element-link {
+    text-decoration: none;
+    width: 100%;
+    color: black;
+    height: 100%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.tool-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 18px;
+}
+.tool-link {
+    text-decoration: none;
+    color: black;
+}
+.add-new-item-circle { 
+    border: 2px black solid;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.add-new-item-circle:hover {
+    background-color: rgb(222, 226, 230);
+}
+@media screen and (min-width: 767px) {
+    .dropdown-dashboard-element {
+        display: none;
+    }
+}
