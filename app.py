@@ -36,7 +36,8 @@ class Element(db.Model):
     text = db.Column(db.Text, nullable=True)
     url = db.Column(db.Text, nullable=True)
     subText = db.Column(db.Text, nullable=True)
-    
+    name = db.Column(db.String(300), nullable=False)
+
     def __repr__(self):
         return "<Texts %r>" % self.id
      
