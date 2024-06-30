@@ -5,5 +5,7 @@
 {% block title %}My Skills{% endblock %}
 
 {% block cards %}
-    {{ card("Node JS", "my first steps in backend development. I managed to create an authorization system and more. Actually Express JS is a very suitable technology if you want to create something quickly and easily.") }}
+    {% for skill in skills %}
+        {{ card(skill.title, skill.text) }}
+    {% endfor %}
 {% endblock %}

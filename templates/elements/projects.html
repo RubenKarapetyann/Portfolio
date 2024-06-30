@@ -5,5 +5,7 @@
 {% block title %}My Projects{% endblock %}
 
 {% block cards %}
-    {{ card("Kinder", "random project 1") }}
+    {% for project in projects %}
+        {{ card(project.title, project.text) }}
+    {% endfor %}
 {% endblock %}

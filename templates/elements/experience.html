@@ -6,5 +6,7 @@
 {% block title %}My Experience{% endblock %}
 
 {% block cards %}
-    {{ card("Apple", "worked one day") }}
+    {% for exp in experience %}
+        {{ card(exp.title, exp.text) }}
+    {% endfor %}
 {% endblock %}
