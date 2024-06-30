@@ -1,7 +1,14 @@
-{% macro description(text, id) -%}
+{% macro description(text, id, subText="") -%}
     <div class="introduction-quote-container" id="{{ id }}">
             <div class="introduction-quote-text">
-                {{ text }}
+                {% if subText %}
+                    <p class="bold">
+                        {{ text }}
+                    </p>  
+                    <p>{{ subText }}</p>
+                {% else %}
+                    <p>{{ text }}</p>
+                {% endif %}
             </div>
         </div>
 {%- endmacro %}

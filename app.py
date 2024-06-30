@@ -35,6 +35,7 @@ class Element(db.Model):
     udate = db.Column(db.DateTime, default=datetime.now)
     text = db.Column(db.Text, nullable=True)
     url = db.Column(db.Text, nullable=True)
+    subText = db.Column(db.Text, nullable=True)
     
     def __repr__(self):
         return "<Texts %r>" % self.id
@@ -90,14 +91,27 @@ def test():
     #         icon="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z")
     # db.session.add(card)
     
-    # db.session.commit()
     
+    # element = Element(block_id=INTRODUCTION, text="Tell me and I forget, teach me and I may remember, involve me and I learn.")
+    # db.session.add(element)
+    # element = Element(block_id=INTRODUCTION, text="17 years", subText="old")
+    # db.session.add(element)
+    # element = Element(block_id=ABOUT, text="Hello, it's me Ruben! I have been studying web technologies and more since I was 14 years old. I have made many interesting projects that I will be glad to show you below. I can say about myself that I love learning something new and communicating with people!")
+    # db.session.add(element)
+    # element = Element(block_id=ABOUT, text="Born in", subText="Yerevan")
+    # db.session.add(element)
+    # element = Element(block_id=ABOUT, text="Born on", subText="15 August 2006")
+    # db.session.add(element)
+    # element = Element(block_id=ABOUT, text="Nationality", subText="Armenian")
+    # db.session.add(element)    
+    # db.session.commit()
     
     skills = db.session.execute(db.select(Card).filter_by(block_id=SKILLS)).scalars()
     projects = db.session.execute(db.select(Card).filter_by(block_id=PROJECTS)).scalars()
     experience = db.session.execute(db.select(Card).filter_by(block_id=EXPERIENCE)).scalars()
     contacts = db.session.execute(db.select(Card).filter_by(block_id=CONTACTS)).scalars()
-    return render_template("portfolio.html", skills=skills, projects=projects, experience=experience, contacts=contacts)
+    elements = Element.query.all()
+    return render_template("portfolio.html", skills=skills, projects=projects, experience=experience, contacts=contacts, elements=elements)
 
 if __name__ == "__main__":
     # with app.app_context():

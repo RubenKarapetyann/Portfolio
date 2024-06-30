@@ -8,12 +8,12 @@
         <div class="about-main-title">
             <p class="about-title-text">About Me</p>
             <br>
-            <p class="about-short-description">Hello, it's me Ruben! I have been studying web technologies and more since I was 14 years old. I have made many interesting projects that I will be glad to show you below. I can say about myself that I love learning something new and communicating with people!</p>
+            <p class="about-short-description">{{ elements[2].text }}</p>
         </div>
         <div class="about-container">
-            {{ about_element("Born in", "Yerevan") }}
-            {{ about_element("Born on", "15 August 2006") }}
-            {{ about_element("Nationality", "Armenian") }}
+            {{ about_element(elements[3].text, elements[3].subText) }}
+            {{ about_element(elements[4].text, elements[4].subText) }}
+            {{ about_element(elements[5].text, elements[5].subText) }}
         </div>
     </div>
 </div> 

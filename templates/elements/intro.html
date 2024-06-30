@@ -5,14 +5,14 @@
         <p class="introduction-title-text">Full-Stack Developer</p>
     </div>
     <div class="introduction-content">
-        {{ description("Tell me and I forget, teach me and I may remember, involve me and I learn.", "introduction-quote-info-1") }}
+        {{ description(elements[0].text, "introduction-quote-info-1") }}
         <div class="image-container">
             <div class="circle"></div>
             <div class="image">
                 <img class="main-image" width="500px" height="500px" src="https://png.pngtree.com/png-vector/20230918/ourmid/pngtree-man-in-shirt-smiles-and-gives-thumbs-up-to-show-approval-png-image_10094381.png" alt="author">
             </div>
         </div>
-        {{ description("17 years old", "introduction-quote-info-2") }}
+        {{ description(elements[1].text, "introduction-quote-info-2", elements[1].subText) }}
     </div>
 </div>
 
