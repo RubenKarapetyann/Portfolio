@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from constants.routes import TEST
+from constants.routes import *
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from constants.database import *
@@ -44,7 +44,6 @@ class Element(db.Model):
      
 ##routes
 @app.route(TEST)
-@app.route("/")
 def test():
     # card = Card(title="HTML/CSS", 
     #         text="html and css are technologies that I have been using and learning since I started my programming journey. They seem to be everywhere, so I've used them in almost every project I've made.",
@@ -93,26 +92,33 @@ def test():
     # db.session.add(card)
     
     
-    # element = Element(block_id=INTRODUCTION, text="Tell me and I forget, teach me and I may remember, involve me and I learn.")
+    # element = Element(block_id=INTRODUCTION, text="Tell me and I forget, teach me and I may remember, involve me and I learn.", name="quote")
     # db.session.add(element)
-    # element = Element(block_id=INTRODUCTION, text="17 years", subText="old")
+    # element = Element(block_id=INTRODUCTION, text="17 years", subText="old", name="secondary_info")
     # db.session.add(element)
-    # element = Element(block_id=ABOUT, text="Hello, it's me Ruben! I have been studying web technologies and more since I was 14 years old. I have made many interesting projects that I will be glad to show you below. I can say about myself that I love learning something new and communicating with people!")
+    # element = Element(block_id=ABOUT, text="Hello, it's me Ruben! I have been studying web technologies and more since I was 14 years old. I have made many interesting projects that I will be glad to show you below. I can say about myself that I love learning something new and communicating with people!", name="about")
     # db.session.add(element)
-    # element = Element(block_id=ABOUT, text="Born in", subText="Yerevan")
+    # element = Element(block_id=ABOUT, text="Born in", subText="Yerevan", name="fact_1")
     # db.session.add(element)
-    # element = Element(block_id=ABOUT, text="Born on", subText="15 August 2006")
+    # element = Element(block_id=ABOUT, text="Born on", subText="15 August 2006", name="fact_2")
     # db.session.add(element)
-    # element = Element(block_id=ABOUT, text="Nationality", subText="Armenian")
+    # element = Element(block_id=ABOUT, text="Nationality", subText="Armenian", name="fact_3")
     # db.session.add(element)    
     # db.session.commit()
-    
+    return "done"
+
+@app.route(INDEX)
+def index():
     skills = db.session.execute(db.select(Card).filter_by(block_id=SKILLS)).scalars()
     projects = db.session.execute(db.select(Card).filter_by(block_id=PROJECTS)).scalars()
     experience = db.session.execute(db.select(Card).filter_by(block_id=EXPERIENCE)).scalars()
     contacts = db.session.execute(db.select(Card).filter_by(block_id=CONTACTS)).scalars()
     elements = Element.query.all()
     return render_template("portfolio.html", skills=skills, projects=projects, experience=experience, contacts=contacts, elements=elements)
+
+@app.route(ADMIN)
+def admin():
+    return render_template("admin.html")
 
 if __name__ == "__main__":
     # with app.app_context():
