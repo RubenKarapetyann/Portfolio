@@ -140,6 +140,8 @@ def index():
 
 @app.route(ADMIN_LOGIN, methods=["GET", "POST"])
 def admin_login():
+    if "username" in session:
+        return redirect(url_for(ADMIN[1:]))
     if request.method == "POST":
         username = request.form["username"]   
         admin = Admin.query.filter_by(username=username).first()
@@ -158,10 +160,20 @@ def admin_login():
 
 @app.route(ADMIN)
 def admin():
-    return render_template("admin.html")
+    if "username" in session:
+        return render_template("admin.html")
+    return redirect(url_for("admin_login"))
+        
+@app.route(LOGOUT)
+def logout():
+    session.pop("username", None)
+    return redirect(url_for("admin_login"))
 
 @app.route(SECTION)
 def section(section):
+    if "username" not in session:
+        return redirect(url_for("admin_login"))
+
     if section not in SECTIONS:
         return redirect(url_for(ADMIN[1:])) 
     
