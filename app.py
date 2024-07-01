@@ -229,7 +229,18 @@ def update(section, id):
         return redirect(url_for(ADMIN[1:]))
     
     if request.method == "POST":
-        return "done"
+        item.url = request.form["url"]
+        item.text = request.form["text"]
+        item.subText = request.form["subText"]
+        if section in CARDS:
+            item.title = request.form["title"]
+            item.icon = request.form["icon"]
+        else:
+            item.name = request.form["name"]
+            
+        db.session.commit()
+        
+        return redirect(ADMIN+"/"+section)
     
     return render_template("update.html", section=section, item=item, isCard=(section in CARDS))
     
