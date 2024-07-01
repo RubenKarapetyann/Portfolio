@@ -29,3 +29,17 @@
         <p class="about-item-text">{{ text }}</p>
     </div>
 {% endmacro %}
+{% macro dashboard_title(need_button, route="") -%}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard</h1>
+        {% if need_button %}
+            <div class="add-new-item-container">
+                <a href="/admin/{{ route }}/create" class="tool-link">
+                    <div class="add-new-item-circle">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{%- endmacro %}

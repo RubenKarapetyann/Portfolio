@@ -1,10 +1,12 @@
 {% extends "carcass/admin_base.html" %}
+{% from "components/global.html" import dashboard_title %}
 
 {% block content %}
     <div class="row">
         {% include "elements/slidebar.html" %}
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            {% include "elements/dashboard_title.html" %}
+            {{ dashboard_title(False, "introduction") }}
+
         </main>
     </div>
 {% endblock %}
