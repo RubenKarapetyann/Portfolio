@@ -179,7 +179,16 @@ def create(section):
         return redirect(url_for(ADMIN[1:]))
 
     if request.method == "POST":
-        return "done"
+        title = request.form["title"]
+        url = request.form["url"]
+        text = request.form["text"]
+        subText = request.form["subText"]
+        icon = request.form["icon"]
+
+        item = Card(title=title, text=text, block_id=section, url=url, subText=subText, icon=icon)
+        db.session.add(item)
+        db.session.commit()
+        return redirect(ADMIN+"/"+section)
     
     return render_template("create.html")
 
