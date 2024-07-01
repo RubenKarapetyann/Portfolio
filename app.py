@@ -1,13 +1,18 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, session
 from constants.routes import *
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from constants.database import *
 import bcrypt
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///portfolio.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 db = SQLAlchemy(app)
 
 
@@ -136,7 +141,18 @@ def index():
 @app.route(ADMIN_LOGIN, methods=["GET", "POST"])
 def admin_login():
     if request.method == "POST":
-        return "done"
+        username = request.form["username"]   
+        admin = Admin.query.filter_by(username=username).first()
+        if not admin:
+            return redirect(url_for("admin_login"))
+        
+        userPassword = request.form["password"]
+        userBytes = userPassword.encode("utf-8")
+        if not bcrypt.checkpw(userBytes, admin.password):
+            return redirect(url_for("admin_login"))
+            
+        session["username"] = username
+        return redirect(url_for(ADMIN[1:]))
         
     return render_template("admin_login.html")
 
