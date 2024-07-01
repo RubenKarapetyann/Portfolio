@@ -1,4 +1,5 @@
 TEST = "/test"
 INDEX = "/"
 ADMIN = "/admin"
+ADMIN_LOGIN = "/admin/login"
 SECTION="/admin/<section>"

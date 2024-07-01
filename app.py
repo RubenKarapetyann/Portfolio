@@ -116,6 +116,10 @@ def index():
     elements = Element.query.all()
     return render_template("portfolio.html", skills=skills, projects=projects, experience=experience, contacts=contacts, elements=elements)
 
+@app.route(ADMIN_LOGIN)
+def admin_login():
+    return render_template("admin_login.html")
+
 @app.route(ADMIN)
 def admin():
     return render_template("admin.html")
