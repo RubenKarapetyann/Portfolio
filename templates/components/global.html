@@ -49,6 +49,20 @@
         <label for="{{ name }}">{{ label }}</label>
     </div>
 {%- endmacro %}
-{% macro button(type, text) -%}
-    <button class="btn btn-primary w-100 py-2" type="{{ type }}">{{ text }}</button>
+{% macro button(type, text, style="primary") -%}
+    <button class="btn btn-{{ style }} w-100 py-2" type="{{ type }}">{{ text }}</button>
 {%- endmacro %}
+{% macro form_input(type, label, name, col=12, placeholder="", value="") %}
+    <div class="col-sm-{{ col }}">
+        <label for="{{ name }}" class="form-label">{{ label }}</label>
+        <input type="{{ type }}" class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}" value="{{ value }}">
+    </div>
+{% endmacro %}
+{% macro form_textarea(label, name, rows=5, placeholder="", value="") %}
+    <div class="col-12">
+        <label for="{{ name }}" class="form-label">{{ label }}</label>
+        <div class="input-group has-validation">
+            <textarea rows="{{ rows }}" style="resize: none;" class="form-control" id="{{ name }}" placeholder="{{ placeholder }}" name="{{ name }}"></textarea>
+        </div>
+    </div>
+{% endmacro %}
