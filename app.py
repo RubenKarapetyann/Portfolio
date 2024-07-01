@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from constants.routes import *
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -119,6 +119,18 @@ def index():
 @app.route(ADMIN)
 def admin():
     return render_template("admin.html")
+
+@app.route(SECTION)
+def section(section):
+    if section not in SECTIONS:
+        return redirect(url_for(ADMIN[1:])) 
+    
+    items = []
+    if section in ELEMENTS:
+        items = db.session.execute(db.select(Element).filter_by(block_id=section)).scalars()
+    items = db.session.execute(db.select(Card).filter_by(block_id=section)).scalars()
+    
+    return render_template("admin.html", items=items, section=section)
 
 if __name__ == "__main__":
     # with app.app_context():
