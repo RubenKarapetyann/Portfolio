@@ -29,9 +29,9 @@
         <p class="about-item-text">{{ text }}</p>
     </div>
 {% endmacro %}
-{% macro dashboard_title(need_button, route="") -%}
+{% macro dashboard_title(need_button, route="", title="Dashboard") -%}
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2">{{ title }}</h1>
         {% if need_button %}
             <div class="add-new-item-container">
                 <a href="/admin/{{ route }}/create" class="tool-link">
@@ -51,6 +51,9 @@
 {%- endmacro %}
 {% macro button(type, text, style="primary") -%}
     <button class="btn btn-{{ style }} w-100 py-2" type="{{ type }}">{{ text }}</button>
+{%- endmacro %}
+{% macro url_button(text, url, style="primary") -%}
+    <a class="btn btn-{{ style }} w-100 py-2" href="{{ url }}">{{ text }}</a>
 {%- endmacro %}
 {% macro form_input(type, label, name, col=12, placeholder="", value="") %}
     <div class="col-sm-{{ col }}">

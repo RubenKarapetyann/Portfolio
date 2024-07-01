@@ -169,6 +169,21 @@ def logout():
     session.pop("username", None)
     return redirect(url_for("admin_login"))
 
+
+@app.route(CREATE, methods=["GET", "POST"])
+def create(section):
+    if "username" not in session:
+        return redirect(url_for("admin_login"))
+    
+    if section not in SECTIONS:
+        return redirect(url_for(ADMIN[1:]))
+
+    if request.method == "POST":
+        return "done"
+    
+    return render_template("create.html")
+
+
 @app.route(SECTION)
 def section(section):
     if "username" not in session:
