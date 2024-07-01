@@ -43,10 +43,10 @@
         {% endif %}
     </div>
 {%- endmacro %}
-{% macro input(type, label, placeholder="", value="") -%}
+{% macro input(type, label, name, placeholder="", value="") -%}
     <div class="form-floating">
-        <input type="{{ type }}" value="{{ value | e }}" class="form-control" id="{{ label }}" placeholder="{{ placeholder }}">
-        <label for="{{ label }}">{{ label }}</label>
+        <input type="{{ type }}" value="{{ value | e }}" name="{{ name }}" class="form-control" id="{{ name }}" placeholder="{{ placeholder }}">
+        <label for="{{ name }}">{{ label }}</label>
     </div>
 {%- endmacro %}
 {% macro button(type, text) -%}

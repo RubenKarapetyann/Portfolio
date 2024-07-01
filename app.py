@@ -1,9 +1,9 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from constants.routes import *
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from constants.database import *
-
+import bcrypt
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///portfolio.db"
@@ -41,10 +41,27 @@ class Element(db.Model):
     def __repr__(self):
         return "<Texts %r>" % self.id
      
+class Admin(db.Model):
+    __tablename__ = "admins"
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(300), nullable=False)
+    password = db.Column(db.Text, nullable=False)
+
+    def __repr__(self):
+        return "<Admin %r>" % self.id
      
 ##routes
 @app.route(TEST)
-def test():
+def test():    
+    # bytes = "adminruben15082006".encode('utf-8') 
+    # salt = bcrypt.gensalt() 
+    # hash = bcrypt.hashpw(bytes, salt) 
+    
+    # admin = Admin(username="admin", password=hash)
+    # db.session.add(admin)
+    # db.session.commit()
+    
+    
     # card = Card(title="HTML/CSS", 
     #         text="html and css are technologies that I have been using and learning since I started my programming journey. They seem to be everywhere, so I've used them in almost every project I've made.",
     #         block_id=SKILLS)
@@ -116,8 +133,11 @@ def index():
     elements = Element.query.all()
     return render_template("portfolio.html", skills=skills, projects=projects, experience=experience, contacts=contacts, elements=elements)
 
-@app.route(ADMIN_LOGIN)
+@app.route(ADMIN_LOGIN, methods=["GET", "POST"])
 def admin_login():
+    if request.method == "POST":
+        return "done"
+        
     return render_template("admin_login.html")
 
 @app.route(ADMIN)
