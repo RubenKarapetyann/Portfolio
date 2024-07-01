@@ -192,6 +192,25 @@ def create(section):
     
     return render_template("create.html")
 
+@app.route(DELETE)
+def delete(section, id):
+    if "username" not in session:
+        return redirect(url_for("admin_login"))
+    
+    try:
+        if section in CARDS:
+            item = Card.query.get_or_404(id)
+            db.session.delete(item)
+        elif section in ELEMENTS:
+            item = Element.query.get_or_404(id) 
+            db.session.delete(item)
+        else:
+            return redirect(url_for(ADMIN[1:]))
+        db.session.commit()
+        return redirect(ADMIN+"/"+section)
+    except:
+        return redirect(url_for(ADMIN[1:]))
+            
 
 @app.route(SECTION)
 def section(section):
