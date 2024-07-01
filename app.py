@@ -212,6 +212,28 @@ def delete(section, id):
         return redirect(url_for(ADMIN[1:]))
             
 
+@app.route(UPDATE, methods=["GET", "POST"])
+def update(section, id):
+    if "username" not in session:
+        return redirect(url_for("admin_login"))
+    
+    item = None
+    try:
+        if section in CARDS:
+            item = Card.query.get_or_404(id)
+        elif section in ELEMENTS:
+            item = Element.query.get_or_404(id) 
+        else:
+            return redirect(url_for(ADMIN[1:]))
+    except:
+        return redirect(url_for(ADMIN[1:]))
+    
+    if request.method == "POST":
+        return "done"
+    
+    return render_template("update.html", section=section, item=item, isCard=(section in CARDS))
+    
+
 @app.route(SECTION)
 def section(section):
     if "username" not in session:

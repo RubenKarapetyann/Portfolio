@@ -29,9 +29,10 @@
         <p class="about-item-text">{{ text }}</p>
     </div>
 {% endmacro %}
-{% macro dashboard_title(need_button, route="", title="Dashboard") -%}
+{% macro dashboard_title(need_button, route="", title="Dashboard", sub_title="") -%}
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">{{ title }}</h1>
+        {% if sub_title %}<h3>#id: {{ sub_title }}</h3>{% endif %}
         {% if need_button %}
             <div class="add-new-item-container">
                 <a href="/admin/{{ route }}/create" class="tool-link">
@@ -65,7 +66,10 @@
     <div class="col-12">
         <label for="{{ name }}" class="form-label">{{ label }}</label>
         <div class="input-group has-validation">
-            <textarea rows="{{ rows }}" style="resize: none;" class="form-control" id="{{ name }}" placeholder="{{ placeholder }}" name="{{ name }}"></textarea>
+            <textarea rows="{{ rows }}" style="resize: none;" class="form-control" id="{{ name }}" placeholder="{{ placeholder }}" name="{{ name }}">{{ value }}</textarea>
         </div>
     </div>
+{% endmacro %}
+{% macro info(title, info) %}
+    <div class="d-flex" style="gap: 5px;"><h5>{{ title }}</h5><span> | {{ info }}</span></div>
 {% endmacro %}

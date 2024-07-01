@@ -1,0 +1,40 @@
+{% extends "carcass/admin_base.html" %}
+{% from "components/global.html" import dashboard_title, form_input, form_textarea, button, url_button, info %}
+
+
+{% block sub_title %}Updating{% endblock %}
+{% block content %}
+    <div class="row">
+        {% include "elements/slidebar.html" %}
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            {{ dashboard_title(false, "", "Update The Item!", item.id ) }}
+            <div>
+                {{ info("Creation", item.cdate) }}
+                {{ info("Last Update", item.udate) }}
+                {{ info("Block ID", item.block_id) }}
+            </div>
+            <hr>
+            <form class="needs-validation" novalidate="" method="POST">
+                <div class="row g-3">
+                    {% if isCard %}
+                        {{ form_input("text", "Title", "title", 6, "", item.title) }}
+                    {% else %}
+                        {{ form_input("text", "Name", "name", 6, "", item.name) }}
+                    {% endif %}
+                    {{ form_input("text", "Url", "url", 6, "", item.url) }}
+                    {{ form_textarea("Text", "text", 5, "", item.text) }}
+                    {{ form_textarea("Sub Text", "subText", 3, "", item.subText) }}
+                    {% if isCard %}
+                        {{ form_input("text", "Icon", "icon", 12, "", item.icon) }}                    
+                    {% endif %}
+                    <hr class="my-4">
+                    <div class="d-flex">
+                        {{ url_button("Cancel", "/admin", "light") }}
+                        {{ button("submit", "Save") }}
+                    </div>
+                </div>
+                <br>
+            </form>
+        </main>
+    </div>
+{% endblock %}
