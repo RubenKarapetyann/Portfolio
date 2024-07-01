@@ -1,0 +1,61 @@
+<h2>{{ section | upper }}</h2>
+<div class="table-responsive small">
+    <table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th scope="col">#id</th>
+            {% if need_button %}
+                <th scope="col">Title</th>
+                <th scope="col">Icon</th>
+            {% else %}
+                <th scope="col">Name</th>
+            {% endif %}
+            <th scope="col">Text</th>
+            <th scope="col">Sub Text</th>
+            <th scope="col">Url</th>
+            <th scope="col">Created On</th>
+            <th scope="col">Last Update</th>
+            <th scope="col">Tools</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                {% if need_button %}
+                    <td>{{ item.title }}</td>
+                    <td>
+                        {% if section == "contacts" %}
+                            <svg 
+                                style="fill: var(--white);"
+                                width="24"
+                                height="24"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill-rule="evenodd"
+                                clip-rule="evenodd">
+                                <path d="{{ item.icon }}"/>
+                            </svg>
+                        {% else %}
+                            {{ item.icon }}
+                        {% endif %}
+                    </td>
+                {% else %}
+                    <td>{{ item.name }}</td>
+                {% endif %}
+                <td>{{ item.text }}</td>
+                <td>{{ item.subText }}</td>
+                <td>{{ item.url }}</td>
+                <td>{{ item.cdate }}</td>
+                <td>{{ item.udate }}</td>
+                <td>
+                    <div class="tool-container">
+                        <a href="/admin/{{ section }}/{{ item.id }}/update" class="tool-link"><i class="fa-solid fa-pen"></i></a>
+                        <a href="/admin/{{ section }}/{{ item.id }}/delete" class="tool-link"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>

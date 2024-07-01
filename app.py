@@ -126,11 +126,15 @@ def section(section):
         return redirect(url_for(ADMIN[1:])) 
     
     items = []
-    if section in ELEMENTS:
-        items = db.session.execute(db.select(Element).filter_by(block_id=section)).scalars()
-    items = db.session.execute(db.select(Card).filter_by(block_id=section)).scalars()
-    
-    return render_template("admin.html", items=items, section=section)
+    try:
+        if section in ELEMENTS:
+            items = db.session.execute(db.select(Element).filter_by(block_id=section)).scalars()
+        else:
+            items = db.session.execute(db.select(Card).filter_by(block_id=section)).scalars()
+    except:
+        pass
+        
+    return render_template("section.html", items=items, section=section, need_button=(section in CARDS))
 
 if __name__ == "__main__":
     # with app.app_context():
