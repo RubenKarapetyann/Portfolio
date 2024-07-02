@@ -57,7 +57,7 @@ header {
     position: fixed;
     animation: slideDown 0.35s ease-out;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 767px) {
     .element-container {
         display: none;
     }
@@ -80,7 +80,7 @@ header {
         display: flex;
     }
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 767px) {
     .nav-menu-container {
         display: none;
     }

@@ -48,6 +48,10 @@
 .add-new-item-circle:hover {
     background-color: rgb(222, 226, 230);
 }
+.admin-photo-container {
+    display: inline;
+    font-size: 20px;
+}
 @media screen and (min-width: 767px) {
     .dropdown-dashboard-element {
         display: none;

@@ -31,6 +31,9 @@
     font-family: "Nunito", sans-serif;
     font-weight: normal;
 }
+body {
+    overflow-x: hidden;
+}
 .container {
     width: 100%;
     display: flex;
@@ -55,7 +58,7 @@ html {
     flex-wrap: wrap;
     gap: 20px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 767px) {
     .thin {
         width: 100%;
     }
