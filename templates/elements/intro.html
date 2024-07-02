@@ -9,14 +9,9 @@
         <div class="image-container">
             <div class="circle"></div>
             <div class="image">
-                <img class="main-image" width="500px" height="500px" src="https://png.pngtree.com/png-vector/20230918/ourmid/pngtree-man-in-shirt-smiles-and-gives-thumbs-up-to-show-approval-png-image_10094381.png" alt="author">
+                <img class="main-image" width="500px" height="500px" src="{{ url_for("static", filename="images/intro-image.png") }}" alt="author">
             </div>
         </div>
         {{ description(elements[1].text, "introduction-quote-info-2", elements[1].subText) }}
     </div>
 </div>
-
-{#"<p class='bold'>
-    17 years
-</p>  
-<p>old</p>" #}

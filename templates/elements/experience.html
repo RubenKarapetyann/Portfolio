@@ -1,11 +1,15 @@
 {% extends "carcass/section_base.html" %}
 {% from "components/cards.html" import card %}
+{% from "components/global.html" import section_title %}
 
 
 {% block scroll_id %}experience{% endblock  %}
 {% block title %}My Experience{% endblock %}
 
 {% block cards %}
+    {% if experience|length == 0 %}
+        {{ section_title("I don't have experience yet!") }}
+    {% endif %}
     {% for exp in experience %}
         {{ card(exp.title, exp.text) }}
     {% endfor %}

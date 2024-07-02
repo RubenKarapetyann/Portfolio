@@ -5,6 +5,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 .footer-text {
     color: var(--white);

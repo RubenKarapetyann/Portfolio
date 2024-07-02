@@ -136,7 +136,7 @@ def index():
     experience = db.session.execute(db.select(Card).filter_by(block_id=EXPERIENCE)).scalars()
     contacts = db.session.execute(db.select(Card).filter_by(block_id=CONTACTS)).scalars()
     elements = Element.query.all()
-    return render_template("portfolio.html", skills=skills, projects=projects, experience=experience, contacts=contacts, elements=elements)
+    return render_template("portfolio.html", skills=list(skills), projects=list(projects), experience=list(experience), contacts=contacts, elements=elements)
 
 @app.route(ADMIN_LOGIN, methods=["GET", "POST"])
 def admin_login():

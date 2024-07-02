@@ -1,10 +1,14 @@
 {% extends "carcass/section_base.html" %}
 {% from "components/cards.html" import card %}
+{% from "components/global.html" import section_title %}
 
 {% block scroll_id %}projects{% endblock  %}
 {% block title %}My Projects{% endblock %}
 
 {% block cards %}
+    {% if projects|length == 0 %}
+        {{ section_title("I don't have projects yet!") }}
+    {% endif %}
     {% for project in projects %}
         {{ card(project.title, project.text, project.subText, project.url) }}
     {% endfor %}
