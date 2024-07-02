@@ -73,3 +73,8 @@
 {% macro info(title, info) %}
     <div class="d-flex" style="gap: 5px;"><h5>{{ title }}</h5><span> | {{ info }}</span></div>
 {% endmacro %}
+{% macro card_button(url, text="github") %}
+    <div class="card-button-container">
+        <a href="{{ url }}" class="card-button-url"><p>{{ text }}</p><i class="card-button-icon fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+{% endmacro %}

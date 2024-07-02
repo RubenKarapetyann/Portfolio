@@ -6,6 +6,6 @@
 
 {% block cards %}
     {% for project in projects %}
-        {{ card(project.title, project.text) }}
+        {{ card(project.title, project.text, project.subText, project.url) }}
     {% endfor %}
 {% endblock %}

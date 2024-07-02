@@ -6,12 +6,16 @@
     z-index: 3;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    background:
+    background-color: #000000;
+    background-image:  linear-gradient(30deg, #2c2c2c 12%, transparent 12.5%, transparent 87%, #2c2c2c 87.5%, #2c2c2c), linear-gradient(150deg, #2c2c2c 12%, transparent 12.5%, transparent 87%, #2c2c2c 87.5%, #2c2c2c), linear-gradient(30deg, #2c2c2c 12%, transparent 12.5%, transparent 87%, #2c2c2c 87.5%, #2c2c2c), linear-gradient(150deg, #2c2c2c 12%, transparent 12.5%, transparent 87%, #2c2c2c 87.5%, #2c2c2c), linear-gradient(60deg, #2c2c2c77 25%, transparent 25.5%, transparent 75%, #2c2c2c77 75%, #2c2c2c77), linear-gradient(60deg, #2c2c2c77 25%, transparent 25.5%, transparent 75%, #2c2c2c77 75%, #2c2c2c77);
+    background-size: 22px 39px;
+    background-position: 0 0, 0 0, 11px 19px, 11px 19px, 0 0, 11px 19px;
+    /* background:
       radial-gradient(#383434 49%,#0000 50%) calc(79px/-2) calc(79px/2),
       repeating-conic-gradient(from 45deg,#000000 0 25%,#0000 0 50%)
         calc(79px/2) calc(79px/2),
       radial-gradient(#383434 49%,#0000 50%),radial-gradient(#383434 49%,#0000 50%) 79px 79px #000000;
-    background-size: calc(2*79px) calc(2*79px);
+    background-size: calc(2*79px) calc(2*79px); */
 }
 .about-container {
     width: 100%;
