@@ -1,4 +1,4 @@
-{% from "components/global.html" import nav_link %}
+{% from "components/global.html" import nav_link, mobile_nav_link %}
 <header class="container thin">
     <div class="inner-container">
         <ul class="content-wrapper">
@@ -18,5 +18,15 @@
                 </div>
             </li>
         </ul>
+        <div class="mobile-nav-container" id="mobile-nav">
+            <ul class="content-wrapper mobile-nav-inner-container">
+                {{ mobile_nav_link("HOME") }}
+                {{ mobile_nav_link("ABOUT", "about") }}
+                {{ mobile_nav_link("SKILLS", "skills") }}
+                {{ mobile_nav_link("PROJECTS", "projects") }}
+                {{ mobile_nav_link("EXPERIENCE", "experience") }}
+                {{ mobile_nav_link("CONTACTS", "contacts") }}
+            </ul>
+        </div>
     </div>
 </header>

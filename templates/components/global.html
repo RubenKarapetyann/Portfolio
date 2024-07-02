@@ -78,3 +78,14 @@
         <a href="{{ url }}" class="card-button-url"><p>{{ text }}</p><i class="card-button-icon fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
 {% endmacro %}
+{% macro mobile_nav_link(text, link="") -%}
+    <li class="container">
+        <div class="mobile-element-inner-container container">
+            <a href="#{{ link }}" class="mobile-nav-link">
+                <p>
+                    {{ text }}
+                </p>
+            </a>
+        </div>
+    </li>
+{%- endmacro %}

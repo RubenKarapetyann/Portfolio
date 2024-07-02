@@ -6,6 +6,30 @@
       transform: translateY(0);
     }
 }
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+@keyframes turn90 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+@keyframes turn-90 {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
 @keyframes appearLeft {
     from {
       transform: translateX(-100%);
