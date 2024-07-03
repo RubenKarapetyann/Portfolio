@@ -58,6 +58,12 @@ html {
     flex-wrap: wrap;
     gap: 20px;
 }
+.active-title {
+    animation: slideRight 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.active-card {
+    animation: cardAppear 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 @media screen and (max-width: 767px) {
     .thin {
         width: 100%;

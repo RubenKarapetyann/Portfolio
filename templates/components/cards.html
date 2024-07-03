@@ -1,14 +1,14 @@
 {% from "components/global.html" import card_button %}
 
 {% macro icon_card(href, path) -%}
-    <div class="contact-element">
+    <div class="contact-element card-anim">
         <a href="{{ href }}">
             <svg style="fill: var(--white);" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="{{ path }}"/></svg>
         </a>
     </div>
 {%- endmacro %}
 {% macro card(title, text, sub_text="", url="", icon="") %}
-    <div class="skills-element-container">
+    <div class="skills-element-container card-anim">
         <div class="skills-element-background">
             <div class="skills-title-container">
                 <p class="skills-title">
